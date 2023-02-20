@@ -1,0 +1,16 @@
+.pass-layout{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-form-contint{
+  width: 445px;
+}
+
+@media (max-width: 600px) {
+  .auth-form-contint{
+    width: 100%;
+  } 
+}

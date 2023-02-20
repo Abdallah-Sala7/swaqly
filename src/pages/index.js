@@ -1,0 +1,6 @@
+export {default as RootLayout} from './RootLayout'
+export {default as Home} from './Home'
+export {default as AuthPage} from './AuthPage'
+export {default as PassLyout} from './PassSetting/PassLyout'
+export {default as ForgotPass} from './PassSetting/ForgotPass'
+export {default as ResetPass} from './PassSetting/ResetPass'

@@ -1,0 +1,206 @@
+.auth-form-contint{
+  padding: 30px 40px 45px;
+  background-color: var(--light-gray);
+  border-radius: 50px;
+}
+
+.auth-form-contint .auth-title{
+  font-size: 35px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--dark-color);
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.auth-form-contint .auth-desc{
+  font-size: 15px;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-form-contint .form-group{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.auth-form-contint .form-group input{
+  width: 100%;
+  border-radius: 24px;
+  border: 1px solid #1a1616da;
+  padding: 13px 15px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.auth-form-contint .form-group label{
+  font-size: 12px;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+.auth-form-contint .form-group input.pass-input{
+  padding: 13px 40px 13px 15px;
+}
+
+.auth-form-contint .form-group .pass-contint{
+  position: relative;
+}
+
+.auth-form-contint .form-group .show-pass{
+  display: flex;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.auth-form-contint .form-action{
+  display: flex;
+  margin-top: 35px;
+  margin-bottom: 18px;
+}
+
+.auth-form-contint .form-action a{
+  position: relative;
+  width: 100%;
+  padding: 14px;
+  font-size: 14px;
+  border-radius: 24px;
+  letter-spacing: 0.6px;
+  text-align: center;
+  z-index: 1;
+  color: var(--white-color);
+  background-color: var(--white-color);
+  outline: 1px solid var(--orange-color);
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.auth-form-contint .form-action a:hover{
+  color: var(--orange-color);
+}
+
+.auth-form-contint .form-action a::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 105%;
+  z-index: -1;
+  background-color: var(--orange-color);
+  transform: scaleX(1);
+  transition: all 0.3s ease;
+}
+
+.auth-form-contint .form-action a:hover::after{
+  transform: scaleX(0);
+}
+
+.auth-form-contint .forget-link{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--error-color);
+}
+
+.auth-form-contint .or-line{
+  position: relative;
+  width: 100%;
+  margin: 30px 0;
+}
+
+.auth-form-contint .or-line span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: var(--dark-color);
+  background-color: var(--white-color);
+  padding: 2px 8px;
+}
+
+.auth-form-contint .social-login{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.auth-form-contint .social-login .social-login-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 14px;
+  border-radius: 24px;
+}
+
+.auth-form-contint .social-login .social-login-btn span{
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.auth-form-contint .social-login .social-login-btn svg{
+  width: 18px;
+  height: 18px;
+}
+
+.auth-form-contint .social-login .social-login-btn.google{
+  background-color: var(--white-color);
+  color: var(--dark-gray);
+}
+
+.auth-form-contint .social-login .social-login-btn.facebook{
+  background-color: #3A5998;
+  color: var(--white-color);
+}
+
+.auth-form-contint .login-info{
+  width: 184px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.auth-form-contint .login-info .login-desc:first-of-type{
+  font-size: 10px;
+  font-weight: 300;
+  margin-bottom: 7px;
+}
+
+.auth-form-contint .login-info .login-desc:last-of-type{
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.auth-form-contint .login-info .login-desc a{
+  color: var(--orange-color);
+}
+
+@media (max-width: 700px) {
+  .auth-form-contint{
+    padding: 30px 20px 45px;
+  }  
+
+  .auth-form-contint .social-login .social-login-btn{
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .auth-form-contint .social-login .social-login-btn span{
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,17 @@
+.pass-contint{
+  position: relative;
+}
+
+.pass-contint .show-pass-btn{
+  display: flex;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.pass-contint input.pass-input{
+  padding: 13px 40px 13px 15px;
+}

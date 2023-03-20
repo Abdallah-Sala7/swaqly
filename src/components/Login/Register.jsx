@@ -25,7 +25,9 @@ const Register = () => {
 
       <form action="" method="post">
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label className="costum-label" htmlFor="name">
+            Name
+          </label>
 
           <input
             type="text"
@@ -39,7 +41,9 @@ const Register = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="email">Email</label>
+          <label className="costum-label" htmlFor="email">
+            Email
+          </label>
 
           <input
             type="email"
@@ -53,7 +57,9 @@ const Register = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="mob-number">Mobile number</label>
+          <label className="costum-label" htmlFor="mob-number">
+            Mobile number
+          </label>
 
           <input
             type={"tel"}
@@ -67,7 +73,9 @@ const Register = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="address">Address</label>
+          <label className="costum-label" htmlFor="address">
+            Address
+          </label>
 
           <input
             type={"text"}
@@ -81,21 +89,23 @@ const Register = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label className="costum-label" htmlFor="password">
+            Password
+          </label>
 
           <PassInput id={"password"} />
         </div>
 
         <div className="form-group">
-          <label htmlFor="confirm-pass">Confirm password</label>
+          <label className="costum-label" htmlFor="confirm-pass">
+            Confirm password
+          </label>
 
           <PassInput id={"confirm-pass"} />
         </div>
 
         <div className="form-action">
-          <OrangeBtn handleClick={handleRegister}>
-            register
-          </OrangeBtn>
+          <OrangeBtn handleClick={handleRegister}>register</OrangeBtn>
         </div>
       </form>
 

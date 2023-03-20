@@ -1,0 +1,120 @@
+.profile-contait {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-contait .profile {
+  position: relative;
+  padding: 60px 40px;
+  border-radius: 50px;
+  background-color: var(--light-gray);
+}
+
+.profile-contait .profile .img-contint {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.profile-contait .profile .img-contint img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.profile-contait .profile .profile-add-img {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 300px;
+  height: 140px;
+  padding: 10px;
+  border: 2px dashed #00000050;
+  margin-bottom: 30px;
+}
+
+.profile-contait .profile .profile-add-img .form-group {
+  position: relative;
+  width: 112px;
+  height: 100%;
+}
+
+.profile-contait .profile .profile-add-img .form-group::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff url('../../assets/images/add_img.png') center no-repeat;
+  background-size: contain;
+  z-index: -1;
+}
+
+.profile-contait .profile .profile-add-img .form-group input {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.profile-contait .profile .profile-add-img .add-img-setting p{
+  font-size: 15px;
+  color: #00000099;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.profile-contait .profile .profile-add-img .add-img-setting .img-btns{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-contait .profile .profile-add-img .add-img-setting .img-btns :is(label, a){
+  color: var(--blue-color);
+  font-weight: 300;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+
+.profile-contait .profile .profile-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.profile-contait .profile .profile-form .form-group{
+  width: 100%;
+}
+
+.profile-contait .profile .profile-form .form-group label{
+  display: block;
+  margin-bottom: 5px;
+}
+
+.profile-contait .profile .profile-form-btn{
+  border-radius: 8px;
+  max-width: 300px;
+  font-size: 14px;
+  margin: auto;
+}
+
+@media (min-width: 567px) {
+  .profile-contait .profile{
+    width: 500px;
+  }
+  .profile-contait .profile .profile-form .form-group{
+    width: 300px;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .profile-contait .profile{
+    width: 750px;
+  }
+}

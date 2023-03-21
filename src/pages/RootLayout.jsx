@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import { Navbar, AsideBar } from "../components";
-import { showAside } from "../store/reducers/appSlice";
+import { resetAll } from "../store/reducers/appSlice";
 
 const RootLayout = () => {
-  const { aside } = useSelector((state) => state.app);
+  const { aside, notification } = useSelector((state) => state.app);
   const dispatch = useDispatch();
 
   return (
@@ -21,8 +21,8 @@ const RootLayout = () => {
 
             <div
               role={"button"}
-              onClick={() => dispatch(showAside())}
-              className={`overlay ${aside && "oppenned"}`}
+              onClick={() => dispatch(resetAll(false))}
+              className={`overlay ${(aside || notification) && "oppenned"}`}
             ></div>
           </div>
         </div>

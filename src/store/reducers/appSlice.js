@@ -1,18 +1,30 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  aside : false
-}
+  aside: false,
+  notification: false,
+};
 
 export const appSlice = createSlice({
-  name: 'app',
+  name: "app",
   initialState,
   reducers: {
     showAside: (state) => {
-      state.aside = !state.aside
-    }
-  },
-})
+      state.aside = !state.aside;
+      state.notification = false;
+    },
 
-export const { showAside } = appSlice.actions
-export default appSlice.reducer
+    showNotification: (state) => {
+      state.notification = !state.notification;
+      state.aside = false;
+    },
+
+    resetAll: (state) => {
+      state.aside = false;
+      state.notification = false;
+    },
+  },
+});
+
+export const { showAside, showNotification, resetAll } = appSlice.actions;
+export default appSlice.reducer;

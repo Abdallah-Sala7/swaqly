@@ -1,0 +1,54 @@
+.notification {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 15px 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.notification:not(:last-child){
+  margin-bottom: 10px;
+}
+
+.notification .notification-icon{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--white-color);
+}
+
+.notification .notification-icon svg{
+  width: 20px;
+  height: 20px;
+  color: var(--blue-color);
+}
+
+.notification .notification-text .notification-title{
+  font-size: 15px;
+  font-weight: 300;
+  margin-bottom: 5px;
+  color: var(--dark-color);
+}
+
+
+.notification .notification-text .notification-description{
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--dark-gray);
+}
+
+.notification .remove-notification{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-gray);
+}
+
+.notification .remove-notification svg{
+  width: 17px;
+  height: 17px;
+}

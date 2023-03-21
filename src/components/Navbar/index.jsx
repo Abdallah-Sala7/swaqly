@@ -2,19 +2,26 @@ import "./style.css";
 
 import {
   AccountCircleOutlined,
-  EmailOutlined,
   Menu,
   NotificationsOutlined,
   Search,
 } from "@mui/icons-material";
-import { useDispatch } from "react-redux";
-import { showAside } from "../../store/reducers/appSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { showAside, showNotification } from "../../store/reducers/appSlice";
+import Notification from "../Notification";
 
 const Navbar = () => {
   const dispatch = useDispatch();
 
+  const { notification } = useSelector((state) => state.app);
+
   const handleAside = (e) => {
     dispatch(showAside());
+    e.preventDefault();
+  };
+
+  const handleNotification = (e) => {
+    dispatch(showNotification());
     e.preventDefault();
   };
 
@@ -36,12 +43,12 @@ const Navbar = () => {
             </div>
 
             <div className="nav-links">
-              <a href="#" className="link-icon">
+              <a
+                href="#"
+                className={`link-icon ${notification && "active"}`}
+                onClick={(e) => handleNotification(e)}
+              >
                 <NotificationsOutlined />
-              </a>
-
-              <a href="#" className="link-icon">
-                <EmailOutlined />
               </a>
 
               <a href="#" className="link-icon">
@@ -49,6 +56,13 @@ const Navbar = () => {
               </a>
             </div>
           </div>
+
+          {notification && (
+            <div className="notification-contint">
+              <Notification />
+              <Notification />
+            </div>
+          )}
         </div>
       </div>
     </nav>

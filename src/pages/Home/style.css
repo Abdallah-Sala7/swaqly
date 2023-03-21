@@ -17,7 +17,13 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
-  padding: 60px 40px;
+  padding: 50px 20px;
   border-radius: 50px;
   background-color: var(--light-gray);
 }
+
+@media (min-width: 768px) {
+.store-container .store-cover {
+padding: 60px 40px;
+} 
+} 

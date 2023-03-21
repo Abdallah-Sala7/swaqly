@@ -12,6 +12,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    localStorage.setItem("login", true);
     navigate("/");
   };
 

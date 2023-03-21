@@ -25,7 +25,7 @@ const AddProduct = () => {
   return (
     <div className="add-product-container">
       <div className="add-product">
-        <div className="img-contint">
+        <div className="bg-img">
           <img src={logo} alt="logo" loading="lazy" />
         </div>
 
@@ -74,10 +74,7 @@ const AddProduct = () => {
                 </div>
               </div>
 
-              <OrangeBtn 
-                handleClick={handleAddItem} 
-                className={"add-btn"}
-              >
+              <OrangeBtn handleClick={handleAddItem} className={"add-btn"}>
                 Add
               </OrangeBtn>
             </div>

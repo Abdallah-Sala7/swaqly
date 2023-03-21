@@ -14,6 +14,7 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
+    localStorage.setItem("login", true);
     navigate("/");
   };
 

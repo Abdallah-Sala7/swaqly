@@ -12,3 +12,7 @@ export {default as PassInput} from './PassInput'
 export {default as OrangeBtn} from './Button/OrangeBtn'
 export {default as SelctCategory} from './material/SelctCategory'
 export {default as Table} from './Table/Table'
+
+export {default as HomeChart} from './HomeChart'
+export {default as StoreCard} from './StoreCard'
+export {default as WithGaurd} from './WithGaurd'

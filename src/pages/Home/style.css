@@ -1,0 +1,23 @@
+.chart-container {
+  margin-bottom: 50px;
+}
+
+.store-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.store-container .store-cover {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 60px 40px;
+  border-radius: 50px;
+  background-color: var(--light-gray);
+}

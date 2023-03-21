@@ -11,10 +11,17 @@ import {
   ShoppingBagOutlined,
   ShoppingCartOutlined,
 } from "@mui/icons-material";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const AsideBar = () => {
-  
+  const navigate = useNavigate();
+
+  const handleLogout = (e) => {
+    localStorage.removeItem("login");
+    navigate("/auth");
+    e.preventDefault();
+  };
+
   return (
     <div className="aside-contint">
       <ul className="aside-list">
@@ -95,13 +102,13 @@ const AsideBar = () => {
         </li>
 
         <li className="aside-item">
-          <Link to="/" className="aside-link">
+          <a href="#" onClick={handleLogout} className="aside-link">
             <span className="aside-icon">
               <LogoutOutlined />
             </span>
 
             <span className="aside-text">Log out</span>
-          </Link>
+          </a>
         </li>
       </ul>
     </div>

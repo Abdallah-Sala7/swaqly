@@ -15,12 +15,16 @@ import {
   AllProduct,
 } from "./pages";
 
-import { Login, Register, ForgotPass, ResetPass } from "./components";
+import { Login, Register, ForgotPass, ResetPass, WithGaurd } from "./components";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />,
+    element:(
+      <WithGaurd>
+        <RootLayout />
+      </WithGaurd>
+    ),
     children: [
       { index: true, element: <Home /> },
       { path: "profile", element: <Profile /> },
@@ -48,7 +52,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <div>404</div>,
+    element: <div>404 this page not found</div>,
   },
 ]);
 

@@ -1,13 +1,13 @@
 import "./style.css";
 
 import { logo } from "../../assets";
-import { OrangeBtn } from "../../components";
+import { OrangeBtn, PassInput } from "../../components";
 
 const Profile = () => {
   return (
     <div className="profile-contait">
       <div className="profile">
-        <div className="img-contint">
+        <div className="bg-img">
           <img src={logo} alt="swaqly logo" />
         </div>
 
@@ -45,66 +45,61 @@ const Profile = () => {
             </div>
 
             <div className="form-group">
-              <label className="costum-label" htmlFor="name">
-                Name
+              <label className="costum-label" htmlFor="email">
+                email
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter your email"
+                className="costum-input"
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="costum-label" htmlFor="mobileNumber">
+                Mobile number
               </label>
               <input
                 type="text"
-                name="name"
-                id="name"
+                name="mobileNumber"
+                id="mobileNumber"
+                placeholder="Enter your Mobile"
+                className="costum-input"
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="costum-label" htmlFor="address">
+                address
+              </label>
+              <input
+                type="text"
+                name="address"
+                id="address"
                 placeholder="Enter your name"
                 className="costum-input"
               />
             </div>
 
             <div className="form-group">
-              <label className="costum-label" htmlFor="name">
-                Name
+              <label className="costum-label" htmlFor="password">
+                password
               </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Enter your name"
-                className="costum-input"
-              />
+
+              <PassInput id={"password"} />
             </div>
 
             <div className="form-group">
-              <label className="costum-label" htmlFor="name">
-                Name
+              <label className="costum-label" htmlFor="location">
+                location
               </label>
               <input
                 type="text"
-                name="name"
-                id="name"
-                placeholder="Enter your name"
-                className="costum-input"
-              />
-            </div>
-
-            <div className="form-group">
-              <label className="costum-label" htmlFor="name">
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Enter your name"
-                className="costum-input"
-              />
-            </div>
-
-            <div className="form-group">
-              <label className="costum-label" htmlFor="name">
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Enter your name"
+                name="location"
+                id="location"
+                placeholder="Enter your location"
                 className="costum-input"
               />
             </div>

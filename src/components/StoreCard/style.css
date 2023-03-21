@@ -1,0 +1,35 @@
+.store-card{
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border: 1px dashed var(--dark-gray);
+}
+
+.store-card .card-img{
+  width: 100%;
+  height: 120px;
+}
+
+.store-card .card-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.store-card .card-body{
+  padding: 15px 10px;
+}
+
+.store-card .card-body .store-name{
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--dark-color);
+  margin-bottom: 5px;
+}
+
+.store-card .card-body .store-location{
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--dark-color);
+}

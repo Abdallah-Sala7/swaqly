@@ -17,7 +17,7 @@ const AsideBar = () => {
   const navigate = useNavigate();
 
   const handleLogout = (e) => {
-    localStorage.removeItem("login");
+    localStorage.removeItem("token");
     navigate("/auth");
     e.preventDefault();
   };

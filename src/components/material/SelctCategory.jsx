@@ -24,11 +24,12 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SelctCategory() {
+export default function SelctCategory({handleCategory}) {
   const [category, setCategory] = useState('');
 
   const handleChange = (event) => {
     setCategory(event.target.value);
+    handleCategory(event.target.value)  
   };
   return (
     <div>
@@ -39,6 +40,7 @@ export default function SelctCategory() {
           onChange={handleChange}
           input={<BootstrapInput />}
         >
+          <option aria-label="None" value="">None</option>
           <option value={'vegetables'}>vegetables</option>
           <option value={'fruits'}>fruits</option>
           <option value={'other'}>other</option>

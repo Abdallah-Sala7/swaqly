@@ -1,25 +1,56 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import PassInput from "../PassInput";
 import OrangeBtn from "../Button/OrangeBtn";
+import { useRegisterUserMutation } from "../../server/authApi";
 
 const Register = () => {
   const [emailValue, setEmailValue] = useState("");
   const [nameValue, setNameValue] = useState("");
   const [numberValue, setNumberValue] = useState("");
   const [addressValue, setAddressValue] = useState("");
+  const [passValue, setPassValue] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const navigate = useNavigate();
+  const [registerUser, { data, isError, isLoading, error, isSuccess }] =
+    useRegisterUserMutation();
 
-  const handleRegister = (e) => {
-    e.preventDefault();
-    localStorage.setItem("login", true);
-    navigate("/");
+  const handlePassword = (pass) => {
+    setPassValue(pass);
   };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    await registerUser({email: emailValue, password: passValue});
+  };
+
+  useEffect(() => {
+    if (isError) {
+      setErrorMsg(error?.data?.message);
+    }
+
+    if (isSuccess) {
+      localStorage.setItem(
+        "token",
+        JSON.stringify({
+          userLogin: true,
+          token: data.access_token,
+        })
+      );
+
+      navigate("/");
+
+      setErrorMsg("");
+      setEmailValue("");
+      setPassValue("");
+    }
+  }, [isError, isSuccess]);
 
   return (
     <div className="auth-form-contint">
+      {isError && <p className="error">{errorMsg}</p>}
       <h1 className="auth-title">register</h1>
 
       <p className="auth-desc">Add your details to sign up</p>
@@ -94,7 +125,11 @@ const Register = () => {
             Password
           </label>
 
-          <PassInput id={"password"} />
+          <PassInput
+            id={"password"}
+            handlePass={handlePassword}
+            value={passValue}
+          />
         </div>
 
         <div className="form-group">
@@ -106,7 +141,9 @@ const Register = () => {
         </div>
 
         <div className="form-action">
-          <OrangeBtn handleClick={handleRegister}>register</OrangeBtn>
+          <OrangeBtn handleClick={handleRegister}>
+            {isLoading ? "Loading..." : "Register"}
+          </OrangeBtn>
         </div>
       </form>
 

@@ -12,18 +12,21 @@
   position: relative;
   width: 100%;
   max-width: 900px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
   padding: 50px 20px;
   border-radius: 50px;
   background-color: var(--light-gray);
 }
 
+.store-contint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 @media (min-width: 768px) {
-.store-container .store-cover {
-padding: 60px 40px;
-} 
-} 
+  .store-container .store-cover {
+    padding: 60px 40px;
+  }
+}

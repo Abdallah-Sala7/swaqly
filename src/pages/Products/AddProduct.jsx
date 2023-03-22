@@ -2,25 +2,47 @@ import { Add, Done } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { logo } from "../../assets";
 import { OrangeBtn, SelctCategory } from "../../components";
+import { useAddProductMutation } from "../../server/prouctApi";
 import "./style.css";
 
 const AddProduct = () => {
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [category, setCategory] = useState("");
   const [addItem, setAddItem] = useState(false);
 
-  const handleAddItem = (e) => {
-    setAddItem(true);
+  const [addProduct, { isLoading, isSuccess }] = useAddProductMutation();
+
+  const handleCategory = (category) => {
+    setCategory(category);
+  };
+
+  const handleAddItem = async (e) => {
+    await addProduct({
+      name,
+      price,
+      category,
+      data: new Date().toLocaleDateString()
+    });
     e.preventDefault();
+    setAddItem(true);
   };
 
   useEffect(() => {
-    const second = setTimeout(() => {
+    if (isSuccess) {
+      setName("");
+      setPrice("");
+      setCategory("");
+    }
+
+    var second = setTimeout(() => {
       setAddItem(false);
     }, 5000);
 
     return () => {
       clearTimeout(second);
     };
-  }, [addItem]);
+  }, [isSuccess]);
 
   return (
     <div className="add-product-container">
@@ -52,6 +74,9 @@ const AddProduct = () => {
                   name="name"
                   id="name"
                   placeholder="product name"
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
                 />
               </div>
 
@@ -63,6 +88,7 @@ const AddProduct = () => {
                   name="price"
                   id="price"
                   placeholder="300 $"
+                  onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
 
@@ -70,7 +96,7 @@ const AddProduct = () => {
                 <label htmlFor="category">category</label>
 
                 <div className="add-category">
-                  <SelctCategory />
+                  <SelctCategory handleCategory={handleCategory} />
                 </div>
               </div>
 

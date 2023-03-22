@@ -2,7 +2,7 @@ import { VisibilityOffOutlined, VisibilityOutlined } from "@mui/icons-material";
 import { useState } from "react";
 import "./style.css";
 
-const PassInput = ({ handlePass, placeholder, id }) => {
+const PassInput = ({ handlePass, placeholder, id, value }) => {
   const [showPass, setShowPass] = useState(false);
 
   return (
@@ -12,6 +12,7 @@ const PassInput = ({ handlePass, placeholder, id }) => {
         id={id}
         placeholder={placeholder}
         required
+        value={value}
         className="costum-input pass-input"
         onChange={(e) => handlePass(e.target.value)}
       />

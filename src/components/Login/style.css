@@ -1,7 +1,24 @@
 .auth-form-contint{
+  position: relative;
   padding: 30px 40px 45px;
   background-color: var(--light-gray);
   border-radius: 50px;
+}
+
+.auth-form-contint .error{
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: 300;
+  white-space: nowrap;
+  padding: 5px 10px;
+  border: 1px solid var(--error-color);
+  border-radius: 5px;
+  background-color: #FFD2DB;
+  color: var(--error-color);
+  margin-bottom: 10px;
 }
 
 .auth-form-contint .auth-title{

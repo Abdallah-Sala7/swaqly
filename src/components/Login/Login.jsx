@@ -1,23 +1,56 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FacebookOutlined, Google } from "@mui/icons-material";
 
 import "./style.css";
 import PassInput from "../PassInput";
 import OrangeBtn from "../Button/OrangeBtn";
+import { useLoginUserMutation } from "../../server/authApi";
 
 const Login = () => {
   const [emailValue, setEmailValue] = useState("");
+  const [passValue, setPassValue] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    localStorage.setItem("login", true);
-    navigate("/");
+  const [loginUser, { error, isError, isLoading, isSuccess, data }] =
+    useLoginUserMutation();
+
+  const handlePassword = (pass) => {
+    setPassValue(pass);
   };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    await loginUser({ email: emailValue, password: passValue });
+  };
+
+  useEffect(() => {
+    if (isError) {
+      setErrorMsg(error?.data?.message);
+    }
+
+    if (isSuccess) {
+      localStorage.setItem(
+        "token",
+        JSON.stringify({
+          userLogin: true,
+          token: data.access_token,
+        })
+      );
+
+      setErrorMsg("");
+      setEmailValue("");
+      setPassValue("");
+      navigate("/");
+    }
+  }, [isError, isSuccess]);
 
   return (
     <div className="auth-form-contint">
+      {isError && <p className="error">{errorMsg}</p>}
+      
       <h1 className="auth-title">login</h1>
 
       <form action="" method="post">
@@ -42,12 +75,12 @@ const Login = () => {
             Password
           </label>
 
-          <PassInput id={"password"} />
+          <PassInput id={"password"} handlePass={handlePassword} value={passValue} />
         </div>
 
         <div className="form-action">
           <OrangeBtn type="submit" handleClick={handleLogin}>
-            login
+            {isLoading ? "Loading..." : "Login"}
           </OrangeBtn>
         </div>
 

@@ -1,18 +1,4 @@
-
-.add-product-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.add-product {
-  position: relative;
-  width: 100%;
-  height: 530px;
-  background-color: var(--light-gray);
-}
-
-.add-product .form-contint{
+.form-contint .form-contint{
   padding: 30px 20px;
   display: flex;
   flex-direction: column;
@@ -20,18 +6,18 @@
   align-items: center;
 }
 
-.add-product .form-group{
+.form-contint .form-group{
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.add-product .form-group:not(:last-child){
+.form-contint .form-group:not(:last-child){
   margin-bottom: 20px;
 }
 
-.add-product .form-group label{
+.form-contint .form-group label{
   font-size: 15px;
   font-weight: 500;
   color: #0909097c;
@@ -39,7 +25,7 @@
   text-transform: capitalize;
 }
 
-.add-product .form-group input{
+.form-contint .form-group input{
   width: 100%;
   height: 45px;
   border: 1px solid #ced4da;
@@ -50,18 +36,18 @@
   border-radius: 8px;
 }
 
-.add-product .add-btn{
+.form-contint .add-btn{
   border-radius: 8px;
 }
 
-.add-product .form-group input[type="file"]{
+.form-contint .form-group input[type="file"]{
   width: 120px;
   height: 130px;
   opacity: 0;
   cursor: pointer;
 }
 
-.add-product .form-group label .icon-add{
+.form-contint .form-group label .icon-add{
   width: 30px;
   height: 30px;
   border: 1px solid #00000070;
@@ -71,18 +57,18 @@
   margin-bottom: 20px;
 }
 
-.add-product .form-group label .icon-add svg{
+.form-contint .form-group label .icon-add svg{
   width: 20px;
   height: 20px;
 }
 
-.add-product .form-group label .title{
+.form-contint .form-group label .title{
   font-size: 0.9rem;
   font-weight: 500;
   color: #00000070;
 }
 
-.add-product .form-group label.file{
+.form-contint .form-group label.file{
   position: absolute;
   top: 0;
   left: 50%;
@@ -97,20 +83,20 @@
   align-items: center;
 }
 
-.add-product .form-group .add-category{
+.form-contint .form-group .add-category{
   width: 100%;
 }
 
-.add-product .add-product-action{
+.add-product-action{
   width: 100%;
-  height: 100%;
+  height: 530px;
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
 }
 
-.add-product .add-product-action .icon-add{
+.add-product-action .icon-add{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,28 +108,24 @@
   color: var(--white-color);
 }
 
-.add-product .add-product-action .icon-add svg{
+.add-product-action .icon-add svg{
   width: 30px;
   height: 30px;
 }
 
-.add-product .add-product-action .title{
+.add-product-action .title{
   font-size: 2.7rem;
   font-weight: 500;
   text-transform: capitalize;
   color: var(--dark-color);
 }
 
-
 @media (min-width: 576px) {
-  .add-product{
-    width: 500px;
-  }
-  .add-product .form-group{
-    width: 350px;
+  .form-contint .form-group{
+    width: 100%;
   }
 
-  .add-product .form-contint{
-    padding: 30px 85px;
+  .form-contint{
+    padding: 30px 75px;
   }
 }

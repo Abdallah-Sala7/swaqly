@@ -10,6 +10,7 @@ import {
   Settings,
   ShoppingBagOutlined,
   ShoppingCartOutlined,
+  ToggleOn,
 } from "@mui/icons-material";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
@@ -88,7 +89,33 @@ const AsideBar = () => {
             </span>
 
             <span className="aside-text">setting</span>
+
+            <span className="aside-icon arrow-icon">
+              <KeyboardArrowDown />
+            </span>
           </NavLink>
+
+          <ul className="aside-sublist">
+            <li className="aside-subitem">
+              <NavLink to="/setting" className="aside-sublink">
+                <span className="aside-icon">
+                  <Add />
+                </span>
+
+                <span className="aside-text">add store</span>
+              </NavLink>
+            </li>
+
+            <li className="aside-subitem">
+              <a href="#" className="aside-sublink">
+                <span className="aside-icon">
+                  <ToggleOn />
+                </span>
+
+                <span className="aside-text">dark mode</span>
+              </a>
+            </li>
+          </ul>
         </li>
 
         <li className="aside-item">

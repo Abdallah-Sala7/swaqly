@@ -1,6 +1,6 @@
 .table{
   position: relative;
-  height: 500px;
+  max-height: 500px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
   overflow-x: auto;
 }
@@ -44,7 +44,8 @@
   gap: 10px;
 }
 
-.table-btns-container a{
+.table-btns-container button{
+  all: unset;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,10 +54,11 @@
   border-radius: 50%;
   color: var(--dark-gray);
   font-size: 20px;
+  cursor: pointer;
   transition: 0.3s  ease-in-out;
 }
 
-.table-btns-container a:hover{
+.table-btns-container button:hover{
   background-color: var(--light-gray);
 }
 

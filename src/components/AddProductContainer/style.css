@@ -1,0 +1,17 @@
+.add-product-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-product {
+  position: relative;
+  width: 100%;
+  background-color: var(--light-gray);
+}
+
+@media (min-width: 576px) {
+  .add-product{
+    width: 500px;
+  }
+}

@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { AddItem, AddProductContainer } from "../../components";
-import { useAddProductMutation } from "../../server/prouctApi";
+import { useAddStoreMutation } from "../../server/storeApi";
 
-const AddProduct = () => {
+const AddStore = () => {
   const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
+  const [location, setLocation] = useState("");
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
 
-  const [addProduct, { isLoading, isSuccess }] = useAddProductMutation();
+  const [addStore, { isLoading, isSuccess }] = useAddStoreMutation();
 
   const handleCategory = (category) => {
     setCategory(category);
@@ -18,8 +18,8 @@ const AddProduct = () => {
     setName(name);
   };
 
-  const handlePrice = (price) => {
-    setPrice(price);
+  const handleLocation = (location) => {
+    setLocation(location);
   };
 
   const handleImage = (image) => {
@@ -27,16 +27,16 @@ const AddProduct = () => {
   };
 
   const handleAddItem = async (e) => {
-    await addProduct({
+    await addStore({
       name,
-      price,
       category,
+      location,
       data: new Date().toLocaleDateString(),
       image,
     });
 
     setName("");
-    setPrice("");
+    setLocation("");
     setCategory("");
     setImage("");
   };
@@ -48,13 +48,13 @@ const AddProduct = () => {
         handleCategory={handleCategory}
         handleName={handleName}
         handleImage={handleImage}
-        handlePrice={handlePrice}
+        handleLocation={handleLocation}
         isSuccess={isSuccess}
         isLoading={isLoading}
-        type={"product"}
+        type={"store"}
       />
     </AddProductContainer>
   );
 };
 
-export default AddProduct;
+export default AddStore;

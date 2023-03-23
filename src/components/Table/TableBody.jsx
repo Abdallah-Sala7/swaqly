@@ -1,6 +1,9 @@
 import { Delete, Done, Edit } from "@mui/icons-material";
 import { useState } from "react";
-import { useDeleteProductMutation, useEditProductMutation } from "../../server/prouctApi";
+import {
+  useDeleteProductMutation,
+  useEditProductMutation,
+} from "../../server/prouctApi";
 
 const TableBody = ({ item }) => {
   const [isEdit, setIsEdit] = useState(false);
@@ -8,9 +11,9 @@ const TableBody = ({ item }) => {
   const [price, setPrice] = useState(item.price);
 
   const [editProduct] = useEditProductMutation();
-  const [deleteProduct] = useDeleteProductMutation();
+  const [deleteProduct, { isLoading }] = useDeleteProductMutation();
 
-  const handleOpenEdit = (e, id) => {
+  const handleOpenEdit = (id) => {
     if (isEdit) {
       setIsEdit(false);
       editProduct({ id, name, price });
@@ -49,17 +52,22 @@ const TableBody = ({ item }) => {
       <td>{item.data}</td>
 
       <td className="table-btns-container">
-        <a
+        <button
           className="table-btn"
           href="#"
-          onClick={(e) => handleOpenEdit(e, item.id)}
+          onClick={(e) => handleOpenEdit(item.id)}
         >
           {isEdit ? <Done /> : <Edit />}
-        </a>
+        </button>
 
-        <a className="table-btn" href="#" onClick={() => deleteProduct({id:item.id})}>
+        <button
+          className="table-btn"
+          href="#"
+          onClick={() => deleteProduct({id:item.id})}
+          disabled={isLoading}
+        >
           <Delete />
-        </a>
+        </button>
       </td>
     </tr>
   );

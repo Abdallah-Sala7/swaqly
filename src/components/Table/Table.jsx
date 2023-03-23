@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useGetProductQuery } from "../../server/prouctApi";
 import "./style.css";
 import TableBody from "./TableBody";
@@ -21,13 +20,17 @@ const Table = () => {
         <tbody>
           {isLoading ? (
             <tr>
-              <td>Loading...</td>
+              <td colSpan={5}>
+                loading...              
+              </td>
             </tr>
           ) : data.length > 0 ? (
-            data.map((item) => <TableBody key={item.id} item={item} />)
+            data.map((item, i) => <TableBody key={i} item={item} />)
           ) : (
             <tr>
-              <td>No data</td>
+              <td colSpan={5}>
+                No data found                
+              </td>
             </tr>
           )}
         </tbody>

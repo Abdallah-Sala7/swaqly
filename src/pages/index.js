@@ -7,3 +7,5 @@ export {default as AddProduct} from './Products/AddProduct'
 export {default as AllProduct} from './Products/AllProduct'
 
 export {default as Profile} from './Profile'
+export {default as Setting} from './Setting'
+

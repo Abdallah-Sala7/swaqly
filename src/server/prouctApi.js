@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseUrl = "http://localhost:3500";
+const baseUrl = "https://secret-axiomatic-taker.glitch.me";
 
 export const productApi = createApi({
   reducerPath: "productApi",

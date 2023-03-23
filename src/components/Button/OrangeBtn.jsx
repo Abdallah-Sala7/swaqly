@@ -1,14 +1,14 @@
 import './style.css'
 
-const OrangeBtn = ({children, handleClick, className}) => {
+const OrangeBtn = ({children, handleClick, className, isLoading}) => {
   return (
-    <a 
-      href="#"
+    <button
       onClick={handleClick}
       className={`orange-btn ${className}`}
+      disabled={isLoading}
     >
       {children}
-    </a>
+    </button>
   )
 }
 

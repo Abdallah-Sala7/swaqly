@@ -13,14 +13,21 @@ import {
   Profile,
   AddProduct,
   AllProduct,
+  Setting,
 } from "./pages";
 
-import { Login, Register, ForgotPass, ResetPass, WithGaurd } from "./components";
+import {
+  Login,
+  Register,
+  ForgotPass,
+  ResetPass,
+  WithGaurd,
+} from "./components";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element:(
+    element: (
       <WithGaurd>
         <RootLayout />
       </WithGaurd>
@@ -28,6 +35,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "profile", element: <Profile /> },
+      { path: "setting", element: <Setting /> },
       {
         path: "products",
         element: <Products />,
@@ -46,8 +54,8 @@ const router = createBrowserRouter([
       { index: true, element: <Login /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
-      { path:'forgot-password', element:<ForgotPass/> },
-      { path:'reset-password', element:<ResetPass/> },
+      { path: "forgot-password", element: <ForgotPass /> },
+      { path: "reset-password", element: <ResetPass /> },
     ],
   },
   {

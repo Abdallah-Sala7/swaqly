@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseUrl = "http://localhost:3500";
+const baseUrl = "https://secret-axiomatic-taker.glitch.me";
 
 export const storeApi = createApi({
   reducerPath: "storeApi",
@@ -11,7 +11,29 @@ export const storeApi = createApi({
       query: () => "/stores",
       providesTags: ["store"],
     }),
+
+    addStore: builder.mutation({
+      query: (body) => ({
+        url: `/stores`,
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["store"],
+    }),
+
+    deleteStore: builder.mutation({
+      query: ({ id }) => ({
+        url: `/stores/${id}`,
+        method: "DELETE",
+        body: id,
+      }),
+      invalidatesTags: ["store"],
+    }),
   }),
 });
 
-export const { useGetStoresQuery } = storeApi;
+export const {
+  useGetStoresQuery,
+  useAddStoreMutation,
+  useDeleteStoreMutation,
+} = storeApi;

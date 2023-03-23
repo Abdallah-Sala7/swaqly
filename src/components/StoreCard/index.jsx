@@ -1,16 +1,9 @@
 import "./style.css";
 import { storeImg } from "../../assets";
-import { useDeleteStoreMutation } from "../../server/storeApi";
 
 const StoreCard = ({item}) => {
-  const [deleteStore] = useDeleteStoreMutation();
   return (
-    <div className="store-card"
-      onClick={() => {
-        deleteStore({id:item.id});
-      }}
-
-    >
+    <div className="store-card">
       <div className="card-img">
         <img src={storeImg} alt={item.name} loading="lazy" />
       </div>

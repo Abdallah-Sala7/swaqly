@@ -12,17 +12,25 @@
   font-size: 0.9em;
 }
 
+#dark .styled-table{
+  background-color: var(--dark-gray);
+}
+
 .styled-table .table-header{
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: var(--light-gray);
 }
 
 .styled-table .table-header tr {
   text-align: left;
   background-color: var(--light-gray);
   color: var(--dark-color);
+}
+
+#dark .styled-table .table-header tr{
+  background-color: var(--dark-gray);
+  color: var(--white-color);
 }
 
 .styled-table th{
@@ -40,6 +48,10 @@
 .styled-table tbody tr {
   border-bottom: 1px solid var(--light-gray);
   background-color: var(--white-color);
+}
+
+#dark .styled-table tbody tr{
+  background-color: var(--light-gray);
 }
 
 .table-btns-container{

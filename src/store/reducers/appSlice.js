@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   aside: false,
   notification: false,
+  dark: false,
 };
 
 export const appSlice = createSlice({
@@ -23,8 +24,12 @@ export const appSlice = createSlice({
       state.aside = false;
       state.notification = false;
     },
+
+    setDark: (state) => {
+      state.dark = !state.dark;
+    }
   },
 });
 
-export const { showAside, showNotification, resetAll } = appSlice.actions;
+export const { showAside, showNotification, resetAll, setDark } = appSlice.actions;
 export default appSlice.reducer;

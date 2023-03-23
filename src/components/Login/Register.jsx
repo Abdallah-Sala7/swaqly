@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import PassInput from "../PassInput";
 import OrangeBtn from "../Button/OrangeBtn";
-import { useRegisterUserMutation } from "../../server/authApi";
+import { useRegisterUserMutation } from "../../store/server/authApi";
 
 const Register = () => {
   const [emailValue, setEmailValue] = useState("");

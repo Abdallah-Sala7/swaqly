@@ -13,9 +13,8 @@
   --white-color: #fff;
   --blue-color: #2329D2;
   --text-color: #00000099;
-  --dark-color: #000000E6;
+  --dark-color: #121212;
   --error-color: #FC103FE5;
-
 }
 
 @font-face {
@@ -92,10 +91,19 @@ textarea:is(:focus, :active) {
   font-weight: 300;
 }
 
+#dark .costum-input {
+  border: none;
+  background-color: var(--light-gray);
+}
+
 .costum-label {
   font-size: 12px;
   font-weight: 300;
   margin-bottom: 5px;
+}
+
+#dark .costum-label {
+  color: var(--white-color);
 }
 
 .bg-img {
@@ -115,6 +123,15 @@ textarea:is(:focus, :active) {
 
 
 /* ************* */
+.main-layout {
+  position: relative;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+#dark .main-layout{
+  background-color: #121212;
+}
 
 .main-layout .aside-bar {
   position: fixed;

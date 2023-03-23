@@ -10,6 +10,10 @@
   background-color: var(--light-gray);
 }
 
+#dark .add-product{
+  background-color: var(--dark-gray);
+}
+
 @media (min-width: 576px) {
   .add-product{
     width: 500px;

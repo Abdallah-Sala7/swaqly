@@ -4,7 +4,7 @@ import {
   useDeleteProductMutation,
   useEditProductMutation,
   useGetProductQuery,
-} from "../../server/prouctApi";
+} from "../../store/server/prouctApi";
 import "./style.css";
 
 const Table = () => {

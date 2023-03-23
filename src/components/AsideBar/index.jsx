@@ -13,13 +13,21 @@ import {
   ToggleOn,
 } from "@mui/icons-material";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setDark } from "../../store/reducers/appSlice";
 
 const AsideBar = () => {
   const navigate = useNavigate();
+  const  dispatch = useDispatch();
 
   const handleLogout = (e) => {
     localStorage.removeItem("token");
     navigate("/auth");
+    e.preventDefault();
+  };
+
+  const handleDark = (e) => {
+    dispatch(setDark());
     e.preventDefault();
   };
 
@@ -107,7 +115,7 @@ const AsideBar = () => {
             </li>
 
             <li className="aside-subitem">
-              <a href="#" className="aside-sublink">
+              <a href="#" onClick={handleDark} className="aside-sublink">
                 <span className="aside-icon">
                   <ToggleOn />
                 </span>

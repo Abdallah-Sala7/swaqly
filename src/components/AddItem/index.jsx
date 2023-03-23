@@ -2,6 +2,7 @@ import "./style.css";
 import { useEffect, useState } from "react";
 import { Add, Done } from "@mui/icons-material";
 import { OrangeBtn, SelctCategory } from "../../components";
+import { useSelector } from "react-redux";
 
 const AddItem = ({
   handleName,
@@ -15,6 +16,7 @@ const AddItem = ({
   type,
 }) => {
   const [addItem, setAddItem] = useState(false);
+  const { dark } = useSelector(state => state.app)
 
   useEffect(() => {
     var second = setTimeout(() => {
@@ -50,7 +52,7 @@ const AddItem = ({
                 type="file"
                 name="img"
                 id="img"
-                onChange={(e) => handleImage(e.target.value)}
+                onChange={(e) => handleImage(e.target.files[0])}
               />
             </div>
 
@@ -98,7 +100,7 @@ const AddItem = ({
               <label htmlFor="category">category</label>
 
               <div className="add-category">
-                <SelctCategory handleCategory={handleCategory} />
+                <SelctCategory handleCategory={handleCategory} dark={dark} />
               </div>
             </div>
 

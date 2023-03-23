@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AddItem, AddProductContainer } from "../../components";
-import { useAddProductMutation } from "../../server/prouctApi";
+import { useAddProductMutation } from "../../store/server/prouctApi";
 
 const AddProduct = () => {
   const [name, setName] = useState("");

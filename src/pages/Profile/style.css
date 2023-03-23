@@ -11,6 +11,10 @@
   background-color: var(--light-gray);
 }
 
+#dark .profile-contait .profile {
+  background-color: var(--dark-gray);
+}
+
 .profile-contait .profile .profile-add-img {
   display: flex;
   align-items: center;
@@ -20,6 +24,10 @@
   padding: 10px 30px;
   border: 2px dashed #00000050;
   margin: 0 auto 30px;
+}
+
+#dark .profile-contait .profile .profile-add-img {
+  border: 2px dashed #ffffff50;
 }
 
 .profile-contait .profile .profile-add-img .form-group {
@@ -34,7 +42,8 @@
   inset: 0;
   background: #fff url('../../assets/images/add_img.png') center no-repeat;
   background-size: contain;
-  z-index: -1;
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .profile-contait .profile .profile-add-img .form-group input {
@@ -49,6 +58,10 @@
   color: #00000099;
   font-weight: 300;
   margin-bottom: 15px;
+}
+
+#dark .profile-contait .profile .profile-add-img .add-img-setting p{
+  color: #ffffff99;
 }
 
 .profile-contait .profile .profile-add-img .add-img-setting .img-btns{

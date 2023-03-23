@@ -1,7 +1,7 @@
 import "./style.css";
 import { HomeChart, StoreCard } from "../../components";
 import { logo } from "../../assets";
-import { useGetStoresQuery } from "../../server/storeApi";
+import { useGetStoresQuery } from "../../store/server/storeApi";
 
 const Home = () => {
   const {

@@ -17,6 +17,10 @@
   background-color: var(--light-gray);
 }
 
+#dark .store-container .store-cover {
+  background-color: var(--dark-gray);
+}
+
 .store-contint {
   display: flex;
   align-items: center;

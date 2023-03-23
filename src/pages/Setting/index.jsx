@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AddItem, AddProductContainer } from "../../components";
-import { useAddStoreMutation } from "../../server/storeApi";
+import { useAddStoreMutation } from "../../store/server/storeApi";
 
 const AddStore = () => {
   const [name, setName] = useState("");

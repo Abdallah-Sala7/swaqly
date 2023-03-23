@@ -4,11 +4,11 @@ import { Navbar, AsideBar } from "../components";
 import { resetAll } from "../store/reducers/appSlice";
 
 const RootLayout = () => {
-  const { aside, notification } = useSelector((state) => state.app);
+  const { aside, notification, dark } = useSelector((state) => state.app);
   const dispatch = useDispatch();
 
   return (
-    <>
+    <div id={dark ? 'dark' : 'light'}>
       <Navbar />
       <main>
         <div className={`main-layout ${aside && "active"}`}>
@@ -27,7 +27,7 @@ const RootLayout = () => {
           </div>
         </div>
       </main>
-    </>
+    </div>
   );
 };
 

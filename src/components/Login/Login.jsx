@@ -5,7 +5,7 @@ import { FacebookOutlined, Google } from "@mui/icons-material";
 import "./style.css";
 import PassInput from "../PassInput";
 import OrangeBtn from "../Button/OrangeBtn";
-import { useLoginUserMutation } from "../../server/authApi";
+import { useLoginUserMutation } from "../../store/server/authApi";
 
 const Login = () => {
   const [emailValue, setEmailValue] = useState("");

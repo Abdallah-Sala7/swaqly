@@ -11,7 +11,7 @@ const TableBody = ({ item }) => {
   const [price, setPrice] = useState(item.price);
 
   const [editProduct] = useEditProductMutation();
-  const [deleteProduct, { isLoading }] = useDeleteProductMutation();
+  const [deleteProduct] = useDeleteProductMutation();
 
   const handleOpenEdit = (id) => {
     if (isEdit) {
@@ -21,6 +21,7 @@ const TableBody = ({ item }) => {
       setIsEdit(true);
     }
   };
+
   return (
     <tr>
       <td>
@@ -63,8 +64,7 @@ const TableBody = ({ item }) => {
         <button
           className="table-btn"
           href="#"
-          onClick={() => deleteProduct({id:item.id})}
-          disabled={isLoading}
+          onClick={() => deleteProduct(item.id)}
         >
           <Delete />
         </button>

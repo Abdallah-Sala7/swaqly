@@ -5,11 +5,11 @@ const baseUrl = "https://secret-axiomatic-taker.glitch.me";
 export const productApi = createApi({
   reducerPath: "productApi",
   baseQuery: fetchBaseQuery({ baseUrl }),
-  tagTypes: ["Product"],
+  tagTypes: ["product"],
   endpoints: (builder) => ({
     getProduct: builder.query({
       query: () => "/products",
-      providesTags: ["Product"],
+      providesTags: ["product"],
     }),
 
     addProduct: builder.mutation({
@@ -18,7 +18,7 @@ export const productApi = createApi({
         method: "POST",
         body,
       }),
-      invalidatesTags: ["Product"],
+      invalidatesTags: ["product"],
     }),
 
     editProduct: builder.mutation({
@@ -27,16 +27,16 @@ export const productApi = createApi({
         method: "PATCH",
         body,
       }),
-      invalidatesTags: ["Product"],
+      invalidatesTags: ["product"],
     }),
 
     deleteProduct: builder.mutation({
-      query: ({id}) => ({
-        url: `/products/${id}`,
+      query: (body) => ({
+        url: `/products/${body}`,
         method: "DELETE",
-        body: id,
+        body,
       }),
-      invalidatesTags:['Product']
+      invalidatesTags:['product']
     }),
   }),
 });

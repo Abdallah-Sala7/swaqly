@@ -1,31 +1,44 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseUrl = "https://secret-axiomatic-taker.glitch.me";
+const token = localStorage.getItem("token");
+const baseUrl = "http://127.0.0.1:8000";
+
+const headers = {
+  "Content-Type": "application/json",
+  Authorization: `Bearer ${token}`,
+};
 
 export const storeApi = createApi({
   reducerPath: "storeApi",
-  baseQuery: fetchBaseQuery({ baseUrl }),
+  baseQuery: fetchBaseQuery({ baseUrl, headers }),
   tagTypes: ["store"],
   endpoints: (builder) => ({
-    getStores: builder.query({
-      query: () => "/stores",
-      providesTags: ["store"],
+    getStores: builder.mutation({
+      query: (body) => ({
+        url: "/api/trader/store",
+        method: "POST",
+        body,
+        headers,
+      }),
+      invalidatesTags: ["store"],
     }),
 
     addStore: builder.mutation({
       query: (body) => ({
-        url: `/stores`,
+        url: `/api/trader/store/store`,
         method: "POST",
         body,
+        headers,
       }),
       invalidatesTags: ["store"],
     }),
 
     deleteStore: builder.mutation({
-      query: ({ id }) => ({
-        url: `/stores/${id}`,
-        method: "DELETE",
-        body: id,
+      query: (body) => ({
+        url: `/api/trader/store/destroy/${body.id}`,
+        method: "POST",
+        body,
+        headers,
       }),
       invalidatesTags: ["store"],
     }),
@@ -33,7 +46,7 @@ export const storeApi = createApi({
 });
 
 export const {
-  useGetStoresQuery,
+  useGetStoresMutation,
   useAddStoreMutation,
   useDeleteStoreMutation,
 } = storeApi;

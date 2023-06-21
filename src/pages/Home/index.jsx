@@ -1,18 +1,19 @@
 import "./style.css";
 import { HomeChart, StoreCard } from "../../components";
 import { logo } from "../../assets";
-import { useGetStoresQuery } from "../../store/server/storeApi";
+import { useGetProductMutation } from "../../store/server/prouctApi";
+import { useEffect } from "react";
 
 const Home = () => {
-  const {
-    data: stores,
-    isError,
-    error,
-    isLoading,
-    isSuccess,
-  } = useGetStoresQuery();
+  const [getStore, { data: stores, isError, error, isLoading, isSuccess }] =
+    useGetProductMutation();
 
-  console.log(stores);
+  useEffect(()=>{
+    getStore({
+      api_password: "ase1iXcLAxanvXLZcgh6tk"
+    });
+  },[])
+
   return (
     <section>
       <div className="chart-container">

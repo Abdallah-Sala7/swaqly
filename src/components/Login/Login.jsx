@@ -36,7 +36,7 @@ const Login = () => {
         "token",
         JSON.stringify({
           userLogin: true,
-          token: data.access_token,
+          token: data.user_token.access_token,
         })
       );
 

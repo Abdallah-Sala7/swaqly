@@ -28,9 +28,11 @@ const AddStore = () => {
 
   const handleAddItem = async (e) => {
     await addStore({
+      api_password: "ase1iXcLAxanvXLZcgh6tk",
       name,
       category,
       location,
+      trader_id: 1,
       data: new Date().toLocaleDateString(),
       image,
     });

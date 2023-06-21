@@ -28,6 +28,7 @@ const AddProduct = () => {
 
   const handleAddItem = async (e) => {
     await addProduct({
+      api_password: "ase1iXcLAxanvXLZcgh6tk",
       name,
       price,
       category,

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseUrl = "https://auth-dukq.onrender.com";
+const baseUrl = "http://127.0.0.1:8000";
 
 export const authApi = createApi({
   reducerPath: "authApi",
@@ -9,7 +9,7 @@ export const authApi = createApi({
   endpoints: (builder) => ({
     loginUser: builder.mutation({
       query: (body) => ({
-        url: "api/auth/login",
+        url: "/api/trader/login",
         method: "POST",
         body,
       }),
@@ -18,7 +18,7 @@ export const authApi = createApi({
 
     registerUser: builder.mutation({
       query: (body) => ({
-        url: "api/auth/register",
+        url: "/api/trader/register",
         method: "POST",
         body,
       }),

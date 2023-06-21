@@ -16,7 +16,7 @@ const AddItem = ({
   type,
 }) => {
   const [addItem, setAddItem] = useState(false);
-  const { dark } = useSelector(state => state.app)
+  const { dark } = useSelector((state) => state.app);
 
   useEffect(() => {
     var second = setTimeout(() => {

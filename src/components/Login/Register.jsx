@@ -11,6 +11,7 @@ const Register = () => {
   const [numberValue, setNumberValue] = useState("");
   const [addressValue, setAddressValue] = useState("");
   const [passValue, setPassValue] = useState("");
+  const [confirmPassValue, setConfirmPassValue] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
   const navigate = useNavigate();
@@ -23,7 +24,14 @@ const Register = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    await registerUser({email: emailValue, password: passValue});
+    await registerUser({
+      name: nameValue,
+      email: emailValue,
+      password: passValue,
+      password_confirmation: confirmPassValue,
+      phoneNumber: numberValue,
+      Adress: addressValue,
+    });
   };
 
   useEffect(() => {
@@ -36,7 +44,7 @@ const Register = () => {
         "token",
         JSON.stringify({
           userLogin: true,
-          token: data.access_token,
+          token: data.user_token.access_token,
         })
       );
 
@@ -137,7 +145,14 @@ const Register = () => {
             Confirm password
           </label>
 
-          <PassInput id={"confirm-pass"} />
+          <input
+            type={"password"}
+            id="confirm-pass"
+            required
+            className="form-control costum-input"
+            value={confirmPassValue}
+            onChange={(e) => setConfirmPassValue(e.target.value)}
+          />
         </div>
 
         <div className="form-action">

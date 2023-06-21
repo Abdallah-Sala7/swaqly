@@ -1,9 +1,9 @@
 import { Delete, Done, Edit } from "@mui/icons-material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   useDeleteProductMutation,
   useEditProductMutation,
-  useGetProductQuery,
+  useGetProductMutation,
 } from "../../store/server/prouctApi";
 import "./style.css";
 
@@ -15,7 +15,13 @@ const Table = () => {
   const [editProduct] = useEditProductMutation();
   const [deleteProduct] = useDeleteProductMutation();
 
-  const { data, isLoading } = useGetProductQuery();
+  const [getProduct, { isLoading, isSuccess, data }] = useGetProductMutation();
+
+  useEffect(() => {
+    getProduct({
+      api_password: "ase1iXcLAxanvXLZcgh6tk",
+    });
+  }, []);
 
   return (
     <div className="table">
@@ -34,8 +40,8 @@ const Table = () => {
             <tr>
               <td colSpan={5}>loading...</td>
             </tr>
-          ) : data.length > 0 ? (
-            data.map((item, i) => (
+          ) : data?.length > 0 ? (
+            data?.map((item, i) => (
               <tr key={i}>
                 <td>{item.name}</td>
 
@@ -55,7 +61,12 @@ const Table = () => {
                   <button
                     className="table-btn"
                     href="#"
-                    onClick={() => deleteProduct(item.id)}
+                    onClick={() =>
+                      deleteProduct({
+                        id: item.id,
+                        api_password: "ase1iXcLAxanvXLZcgh6tk",
+                      })
+                    }
                   >
                     <Delete />
                   </button>

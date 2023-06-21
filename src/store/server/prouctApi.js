@@ -1,48 +1,62 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseUrl = "https://secret-axiomatic-taker.glitch.me";
+const token = localStorage.getItem("token");
+const baseUrl = "http://127.0.0.1:8000";
+
+const headers = {
+  "Content-Type": "application/json",
+  Authorization: `Bearer ${token}`,
+};
 
 export const productApi = createApi({
   reducerPath: "productApi",
-  baseQuery: fetchBaseQuery({ baseUrl }),
+  baseQuery: fetchBaseQuery({ baseUrl, headers }),
   tagTypes: ["product"],
   endpoints: (builder) => ({
-    getProduct: builder.query({
-      query: () => "/products",
-      providesTags: ["product"],
+    getProduct: builder.mutation({
+      query: (body) => ({
+        url: "/api/trader/product",
+        method: "GET",
+        body,
+        headers,
+      }),
+      invalidatesTags: ["product"],
     }),
 
     addProduct: builder.mutation({
       query: (body) => ({
-        url: `/products`,
+        url: `/api/trader/product/store`,
         method: "POST",
         body,
+        headers,
       }),
       invalidatesTags: ["product"],
     }),
 
     editProduct: builder.mutation({
       query: (body) => ({
-        url: `/products/${body.id}`,
-        method: "PATCH",
+        url: `/api/trader/product/update/${body.id}`,
+        method: "POST",
         body,
+        headers,
       }),
       invalidatesTags: ["product"],
     }),
 
     deleteProduct: builder.mutation({
       query: (body) => ({
-        url: `/products/${body}`,
-        method: "DELETE",
+        url: `/api/trader/product/destroy/${body.id}`,
+        method: "POST",
         body,
+        headers,
       }),
-      invalidatesTags:['product']
+      invalidatesTags: ["product"],
     }),
   }),
 });
 
 export const {
-  useGetProductQuery,
+  useGetProductMutation,
   useAddProductMutation,
   useEditProductMutation,
   useDeleteProductMutation,
